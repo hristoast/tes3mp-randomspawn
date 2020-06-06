@@ -28,21 +28,46 @@ local VanillaSpawns = {
     { "11, 14", 101402, 114893, 158, -2.03, "Vos" }
 }
 
--- TODO: Pick some points...
-local ProvinceCyrodiilSpawns = {}
-local SkyrimHomeOfTheNordsSpawns = {}
-local TamrieRebuiltSpawns = {}
+local ProvinceCyrodiilSpawns = {
+    -- Stirk docks
+    {"-136, -53", -1110173, -426702, 192, -2.06, "Stirk"},
+}
+
+local SkyrimHomeOfTheNordsSpawns = {
+    -- Karthwasten docks
+    {"-106, 8", -861265, 66443, 89, -2.99, "Vorndgad Forest Region"},
+}
+
+local TamrieRebuiltSpawns = {
+    -- Firewatch docks
+    {"16, 15", 138087, 125604, 180, 1.64, "Molagreahd Region"},
+    -- Port Telvannis docks
+    {"41, 16", 343288, 132666, 235, -0.31, "Telvanni Isles Region"},
+    -- Necrom
+    {"43, -11", 354591, -82836, 710, -2.48, "Sacred Lands Region"},
+    -- Dondril
+    {"9, -22", 78056, -177708, 1913, -2.73, "Aanthirin Region"},
+    -- Almas Thirr
+    {"6, -27", 50641, -220140, 110, 2.21, "Aanthirin Region"},
+}
+
+local TamrieRebuiltPreviewSpawns = {
+    -- Baan Malur
+    {"-20, 12", -158130, 102900, 391, 1.93, "Julan-Shar Region"},
+}
 
 local spawns = {}
 
 RandomSpawn.defaultConfig = {
     useProvinceCyrodiilSpawns = false,
     useTamrielRebuiltSpawns = false,
+    useTamrielRebuiltPreviewSpawns = false,
     useSkyrimHomeOfTheNordsSpawns = false,
     useVanillaSpawns = true,
     provinceCyrodiilSpawns = ProvinceCyrodiilSpawns,
     skyrimHomeOfTheNordsSpawns = SkyrimHomeOfTheNordsSpawns,
     tamrieRebuiltSpawns = TamrieRebuiltSpawns,
+    tamrieRebuiltPreviewSpawns = TamrieRebuiltPreviewSpawns,
     vanillaSpawns = VanillaSpawns,
     customSpawns = {},
 }
@@ -64,6 +89,10 @@ end
 
 if RandomSpawn.config.useTamrielRebuiltSpawns then
     for k, v in pairs(RandomSpawn.config.tamrieRebuiltSpawns) do spawns[k] = v end
+end
+
+if RandomSpawn.config.useTamrielRebuiltPreviewSpawns then
+    for k, v in pairs(RandomSpawn.config.tamrieRebuiltPreviewSpawns) do spawns[k] = v end
 end
 
 if RandomSpawn.config.useSkyrimHomeOfTheNordsSpawns then
