@@ -6,6 +6,22 @@ Randomize where new players spawn, comes with default spawn points that are full
 
 Heavily based on [ccSuite](https://github.com/Texafornian/ccSuite)'s implementation, special thanks to Texafornian for making that!
 
+## Installation
+
+1. Place this repo into your `CoreScripts/scripts/custom/` directory.
+
+1. Add the following to `CoreScripts/scripts/customScripts.lua`:
+
+        ...
+        -- DataManager needs to before RandomSpawn, like this
+        DataManager = require("custom/DataManager/main")
+
+        require("custom/tes3mp-randomspawn/main")
+
+1. Ensure that `DataManager` loads before this mod as seen above.
+
+1. Optionally configure RandomSpawn by editing the `CoreScripts/data/custom/__config_RandomSpawn.json` file (see below).
+
 ## Configuration
 
 * `useProvinceCyrodiilSpawns`
