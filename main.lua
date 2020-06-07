@@ -73,6 +73,7 @@ RandomSpawn.defaultConfig = {
 }
 
 RandomSpawn.config = DataManager.loadConfiguration(scriptName, RandomSpawn.defaultConfig)
+math.randomseed(os.time())
 
 local function info(msg)
    tes3mp.LogMessage(enumerations.log.INFO, "[ " .. scriptName .." ]: " .. msg)
@@ -116,7 +117,6 @@ end
 
 -- THANKS: https://github.com/Texafornian/ccSuite/blob/699b87fe98698ea240a9a77c42d400ec88c30841/scripts/custom/ccsuite/ccCharGen.lua#L176-L191
 RandomSpawn.DoSpawn = function(eventStatus, pid)
-    math.randomseed(os.time())
     local t = math.random(1, #spawns)
     local cellID = spawns[t][1]
     local x = spawns[t][2]
